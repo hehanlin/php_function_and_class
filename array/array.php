@@ -63,8 +63,8 @@ $records = array(
         'last_name' => 'Doe',
     )
 );
-$last_names = array_column($records, 'last_name', 'id');
-print_r($last_names);
+//$last_names = array_column($records, 'last_name', 'id');
+//print_r($last_names);
 echo "\n//////////////////////////////////////////////////////////////////////\n";
 
 ///////////////////////////////////////////////////////////////////////////////////////
@@ -211,3 +211,95 @@ echo "\n//////////////////////////////////////////////////////////////////////\n
 //////////////////////////////end 2015/8/10 16:51////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+////////////////////////////////////////2015/8/12 22：33/////////////////////////////////////
+
+
+//array array_flip ( array $trans )
+
+//array_flip() 返回一个反转后的 array，例如 trans 中的键名变成了值，而 trans 中的值成了键名。
+//注意 trans 中的值需要能够作为合法的键名，例如需要是 integer 或者 string。如果值的类型不对将发出一个警告，并且有问题的键／值对将不会反转。
+//如果同一个值出现了多次，则最后一个键名将作为它的值，所有其它的都丢失了。
+
+$trans = array("a" => 1, "b" => 1, "c" => 2);
+$trans = array_flip($trans);
+print_r($trans);
+
+echo "\n//////////////////////////////////////////////////////////////////////\n";
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// array_intersect_assoc ( array $array1 , array $array2 [, array $ ... ] )
+
+//array_intersect_assoc() 返回一个数组，该数组包含了所有在 array1 中也同时出现在所有其它参数数组中的值。注意和 array_intersect() 不同的是键名也用于比较。
+
+$array1 = array("a" => "green", "b" => "brown", "c" => "blue", "red");
+$array2 = array("a" => "green", "b" => "yellow", "blue", "red");
+$result_array = array_intersect_assoc($array1, $array2);
+print_r($result_array);
+
+echo "\n//////////////////////////////////////////////////////////////////////\n";
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
+
+//array array_intersect_key ( array $array1 , array $array2 [, array $ ... ] )
+
+//array_intersect_key() 返回一个数组，该数组包含了所有出现在 array1 中并同时出现在所有其它参数数组中的键名的值。
+
+$array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
+$array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+
+var_dump(array_intersect_key($array1, $array2));
+
+echo "\n//////////////////////////////////////////////////////////////////////\n";
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//array array_intersect ( array $array1 , array $array2 [, array $ ... ] )
+
+//array_intersect() 返回一个数组，该数组包含了所有在 array1 中也同时出现在所有其它参数数组中的值。注意键名保留不变。
+
+$array1 = array("a" => "green", "red", "blue");
+$array2 = array("b" => "green", "yellow", "red");
+$result = array_intersect($array1, $array2);
+print_r($result);
+
+echo "\n//////////////////////////////////////////////////////////////////////\n";
+
+
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//bool array_key_exists ( mixed $key , array $search )
+
+//array_key_exists() 在给定的 key 存在于数组中时返回 TRUE。key 可以是任何能作为数组索引的值。array_key_exists() 也可用于对象。
+//isset() 对于数组中为 NULL 的值不会返回 TRUE，而 array_key_exists() 会。
+
+$search_array = array('first' => null, 'second' => 4);
+
+// returns false
+echo isset($search_array['first'])   ?   '1'    :   '0';
+
+// returns true
+echo array_key_exists('first', $search_array)   ?   '1' :   '0';
+
+echo "\n//////////////////////////////////////////////////////////////////////\n";
